@@ -555,10 +555,10 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
     PHAsset *asset = self.assetsFetchResults[indexPath.item];
     //GMFetchItem * fetch_item = [dic_asset_fetches objectForKey:[ NSNumber numberWithLong:indexPath.item ]];
     GMFetchItem * fetch_item = [dic_asset_fetches objectForKey:asset];
-    
+
     [self.picker selectAsset:asset];
     [self.picker selectFetchItem:fetch_item];
-    
+
     if ([self.picker.delegate respondsToSelector:@selector(assetsPickerController:didSelectAsset:)])
         [self.picker.delegate assetsPickerController:self.picker didSelectAsset:asset];
 }
@@ -578,10 +578,10 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
     PHAsset *asset = self.assetsFetchResults[indexPath.item];
     //GMFetchItem * fetch_item = [dic_asset_fetches objectForKey:[ NSNumber numberWithLong:indexPath.item ]];
     GMFetchItem * fetch_item = [dic_asset_fetches objectForKey:asset];
-    
+
     [self.picker deselectAsset:asset];
     [self.picker deselectFetchItem:fetch_item];
-    
+
     if ([self.picker.delegate respondsToSelector:@selector(assetsPickerController:didDeselectAsset:)])
         [self.picker.delegate assetsPickerController:self.picker didDeselectAsset:asset];
 }

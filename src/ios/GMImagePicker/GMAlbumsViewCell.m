@@ -97,41 +97,47 @@
 
         
         //TextLabel
-        self.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
-        self.textLabel.numberOfLines = 1;
-        self.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        self.textLabel1 = [UILabel new];
+        self.textLabel1.frame = CGRectMake(kAlbumLeftToImageSpace + kAlbumThumbnailSize1.width + 8, 8+4,self.contentView.frame.size.width - kAlbumThumbnailSize1.width - 17, 35);
+        self.textLabel1.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+        self.textLabel1.numberOfLines = 1;
+        self.textLabel1.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.contentView addSubview:self.textLabel1];
         
-        self.detailTextLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];
-        self.detailTextLabel.numberOfLines = 1;
-        self.detailTextLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        self.detailTextLabel1 = [UILabel new];
+        self.detailTextLabel1.frame = CGRectMake(kAlbumLeftToImageSpace + kAlbumThumbnailSize1.width + 8, 8+4+self.textLabel1.frame.size.height,self.contentView.frame.size.width - kAlbumThumbnailSize1.width - 17, 30);
+        self.detailTextLabel1.font = [UIFont fontWithName:@"Helvetica" size:14.0];
+        self.detailTextLabel1.numberOfLines = 1;
+        self.detailTextLabel1.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.contentView addSubview:self.detailTextLabel1];
         
         //Set next text labels contraints :
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[imageView1]-(offset)-[textLabel]-|"
-                                                                                 options:0
-                                                                                 metrics:@{@"offset": @(kAlbumImageToTextSpace)}
-                                                                                   views:@{@"textLabel": self.textLabel,
-                                                                                           @"imageView1": self.imageView1}]];
+//        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[imageView1]-(offset)-[textLabel]-|"
+//                                                                                 options:0
+//                                                                                 metrics:@{@"offset": @(kAlbumImageToTextSpace)}
+//                                                                                   views:@{@"textLabel": self.textLabel,
+//                                                                                           @"imageView1": self.imageView1}]];
         
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[imageView1]-(offset)-[detailTextLabel]-|"
-                                                                                 options:0
-                                                                                 metrics:@{@"offset": @(kAlbumImageToTextSpace)}
-                                                                                   views:@{@"detailTextLabel": self.detailTextLabel,
-                                                                                           @"imageView1": self.imageView1}]];
+//        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[imageView1]-(offset)-[detailTextLabel]-|"
+//                                                                                 options:0
+//                                                                                 metrics:@{@"offset": @(kAlbumImageToTextSpace)}
+//                                                                                   views:@{@"detailTextLabel": self.detailTextLabel,
+//                                                                                           @"imageView1": self.imageView1}]];
         
         
-        [self.contentView addConstraints:@[[NSLayoutConstraint constraintWithItem:self.textLabel
-                                                                        attribute:NSLayoutAttributeBottom
-                                                                        relatedBy:NSLayoutRelationEqual
-                                                                           toItem:self.textLabel.superview
-                                                                        attribute:NSLayoutAttributeCenterY
-                                                                       multiplier:1.f constant:0.f]]];
+//        [self.contentView addConstraints:@[[NSLayoutConstraint constraintWithItem:self.textLabel
+//                                                                        attribute:NSLayoutAttributeBottom
+//                                                                        relatedBy:NSLayoutRelationEqual
+//                                                                           toItem:self.textLabel.superview
+//                                                                        attribute:NSLayoutAttributeCenterY
+//                                                                       multiplier:1.f constant:0.f]]];
         
-        [self.contentView addConstraints:@[[NSLayoutConstraint constraintWithItem:self.detailTextLabel
-                                                                        attribute:NSLayoutAttributeTop
-                                                                        relatedBy:NSLayoutRelationEqual
-                                                                           toItem:self.textLabel.superview
-                                                                        attribute:NSLayoutAttributeCenterY
-                                                                       multiplier:1.f constant:+4.f]]];
+//        [self.contentView addConstraints:@[[NSLayoutConstraint constraintWithItem:self.detailTextLabel
+//                                                                        attribute:NSLayoutAttributeTop
+//                                                                        relatedBy:NSLayoutRelationEqual
+//                                                                           toItem:self.textLabel.superview
+//                                                                        attribute:NSLayoutAttributeCenterY
+//                                                                       multiplier:1.f constant:+4.f]]];
     }
     
     
