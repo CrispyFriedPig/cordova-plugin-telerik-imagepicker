@@ -28,6 +28,7 @@
 @property (nonatomic, strong) UIView* gradientView;
 @property (nonatomic, strong) CAGradientLayer *gradient;
 //Selection overlay
-
+@property (nonatomic, strong) UILabel *textLabel1;
+@property (nonatomic, strong) UILabel *detailTextLabel1;
 - (void)setVideoLayout:(BOOL)isVideo;
 @end
