@@ -61,7 +61,7 @@
 @property (nonatomic, weak) GMImagePickerController *picker;
 @property (strong) PHCachingImageManager *imageManager;
 @property CGRect previousPreheatRect;
-
+@property BOOL first;
 @end
 
 static CGSize AssetGridThumbnailSize;
@@ -139,7 +139,7 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
 {
     [super viewDidLoad];
     [self setupViews];
-    
+    self.first = YES;
     //Navigation bar customization_
     if(self.picker.customNavigationBarPrompt)
     {
@@ -158,12 +158,16 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
     
     [self setupButtons];
     [self setupToolbar];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self updateCachedAssets];
+    
+    [self.collectionView reloadData];
+    
 }
 
 - (void)dealloc
@@ -300,9 +304,21 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
 {
     return 1;
 }
-
+-(void) scrollBottom
+{
+    if ([self.assetsFetchResults count]) {   //messageData是数据源
+        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:self.assetsFetchResults.count-1 inSection:0];
+//        [self.collectionView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionBottom];
+    }
+}
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.first) {
+        self.first = NO;
+        [self scrollBottom];
+    }
+    
     GMGridViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GMGridViewCellIdentifier
                                                              forIndexPath:indexPath];
     

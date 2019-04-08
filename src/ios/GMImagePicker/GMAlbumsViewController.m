@@ -152,7 +152,7 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     NSPredicate * predicatePHAsset = allow_video? nil : [NSPredicate predicateWithFormat:@"mediaType == %d", PHAssetMediaTypeImage];
     
     PHFetchOptions *options = [[PHFetchOptions alloc] init];
-    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+//    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
     options.predicate = predicatePHAsset;
     
     self.collectionsFetchResultsAssets=nil;
@@ -256,7 +256,7 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
+//    [self scrollBottom];
     GMAlbumsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 //    if (cell == nil) {
         cell = [[GMAlbumsViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
