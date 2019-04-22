@@ -65,8 +65,8 @@ typedef enum : NSUInteger {
 
 - (void) getPictures:(CDVInvokedUrlCommand *)command {
 
-    // 强制横屏 tqs
-    [[UIDevice currentDevice]setValue:[NSNumber numberWithInteger:UIDeviceOrientationLandscapeLeft]forKey:@"orientation"];
+    // 强制竖屏 tqs
+    [[UIDevice currentDevice]setValue:[NSNumber numberWithInteger:UIDeviceOrientationPortrait]forKey:@"orientation"];
     
     NSDictionary *options = [command.arguments objectAtIndex: 0];
 
